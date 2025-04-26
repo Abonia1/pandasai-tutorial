@@ -1,0 +1,1232 @@
+2024-08-17 19:27:34 [INFO] Question: Return the survived class in percentage
+2024-08-17 19:27:34 [INFO] Running PandasAI with local LLM...
+2024-08-17 19:27:34 [INFO] Prompt ID: bda5f5ed-cea7-43bc-afdb-00c14bf17bff
+2024-08-17 19:27:34 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-08-17 19:27:34 [INFO] Executing Step 0: ValidatePipelineInput
+2024-08-17 19:27:34 [INFO] Executing Step 1: CacheLookup
+2024-08-17 19:27:34 [INFO] Executing Step 2: PromptGeneration
+2024-08-17 19:27:34 [INFO] Using prompt: <dataframe>
+dfs[0]:891x15
+survived,pclass,sex,age,sibsp,parch,fare,embarked,class,who,adult_male,deck,embark_town,alive,alone
+0,2,female,55.5,1,0,12.525,S,Third,child,True,B,Southampton,no,False
+1,1,male,,3,6,13.4167,,Second,woman,False,C,Cherbourg,no,True
+0,3,male,71.0,0,1,23.0,Q,First,man,True,,,yes,True
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ Return the survived class in percentage
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+2024-08-17 19:27:34 [INFO] Executing Step 3: CodeGenerator
+2024-08-17 19:28:13 [INFO] HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+2024-08-17 19:28:13 [INFO] Prompt used:
+            <dataframe>
+dfs[0]:891x15
+survived,pclass,sex,age,sibsp,parch,fare,embarked,class,who,adult_male,deck,embark_town,alive,alone
+0,2,female,55.5,1,0,12.525,S,Third,child,True,B,Southampton,no,False
+1,1,male,,3,6,13.4167,,Second,woman,False,C,Cherbourg,no,True
+0,3,male,71.0,0,1,23.0,Q,First,man,True,,,yes,True
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ Return the survived class in percentage
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+            
+2024-08-17 19:28:13 [INFO] Code generated:
+            ```
+            # TODO: import the required dependencies
+import pandas as pd
+import numpy as np
+
+# Write code here
+
+# Create a new dataframe containing only "survived" column
+df_survived = dfs[0][['survived']] # filter out the survived column
+
+# Calculate percentage by dividing by total and multiplying by 100
+df_survived["percentage"] = df_survived["survived"].astype(float) * 100 / df_survived.shape[0]
+
+result = { "type": "number", "value": round(df_survived['percentage'].sum(), 2) }
+
+# Print the result for better understanding
+print(f"The survived passengers represent {result['value']}% of the entire dataset.")
+            ```
+            
+2024-08-17 19:28:13 [INFO] Executing Step 4: CachePopulation
+2024-08-17 19:28:14 [INFO] Executing Step 5: CodeCleaning
+2024-08-17 19:28:14 [INFO] 
+Code running:
+```
+df_survived = dfs[0][['survived']]
+df_survived['percentage'] = df_survived['survived'].astype(float) * 100 / df_survived.shape[0]
+result = {'type': 'number', 'value': round(df_survived['percentage'].sum(), 2)}
+print(f"The survived passengers represent {result['value']}% of the entire dataset.")
+        ```
+2024-08-17 19:28:14 [INFO] Executing Step 6: CodeExecution
+2024-08-17 19:28:14 [INFO] Executing Step 7: ResultValidation
+2024-08-17 19:28:14 [INFO] Answer: {'type': 'number', 'value': 38.38}
+2024-08-17 19:28:14 [INFO] Executing Step 8: ResultParsing
+2024-08-17 19:28:53 [INFO] Question: Count the unique values in the 'age' column.
+2024-08-17 19:28:53 [INFO] Running PandasAI with local LLM...
+2024-08-17 19:28:53 [INFO] Prompt ID: bedc26cf-fcca-46a2-be1e-7fc4ae7adb0a
+2024-08-17 19:28:53 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-08-17 19:28:53 [INFO] Executing Step 0: ValidatePipelineInput
+2024-08-17 19:28:53 [INFO] Executing Step 1: CacheLookup
+2024-08-17 19:28:53 [INFO] Executing Step 2: PromptGeneration
+2024-08-17 19:28:53 [INFO] Using prompt: <dataframe>
+dfs[0]:891x15
+survived,pclass,sex,age,sibsp,parch,fare,embarked,class,who,adult_male,deck,embark_town,alive,alone
+0,2,female,55.5,1,0,12.525,S,Third,child,True,B,Southampton,no,False
+1,1,male,,3,6,13.4167,,Second,woman,False,C,Cherbourg,no,True
+0,3,male,71.0,0,1,23.0,Q,First,man,True,,,yes,True
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ Count the unique values in the 'age' column.
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+2024-08-17 19:28:53 [INFO] Executing Step 3: CodeGenerator
+2024-08-17 19:29:24 [INFO] HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+2024-08-17 19:29:24 [INFO] Prompt used:
+            <dataframe>
+dfs[0]:891x15
+survived,pclass,sex,age,sibsp,parch,fare,embarked,class,who,adult_male,deck,embark_town,alive,alone
+0,2,female,55.5,1,0,12.525,S,Third,child,True,B,Southampton,no,False
+1,1,male,,3,6,13.4167,,Second,woman,False,C,Cherbourg,no,True
+0,3,male,71.0,0,1,23.0,Q,First,man,True,,,yes,True
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ Count the unique values in the 'age' column.
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+            
+2024-08-17 19:29:24 [INFO] Code generated:
+            ```
+            # TODO: import the required dependencies
+import pandas as pd
+import numpy as np
+
+# Given DataFrame - dfs is declared already
+
+# Count unique values in 'age' column
+age_unique = np.unique(dfs[0]['age'])
+
+# Declare result var: 
+result = { "type": "number", "value": len(age_unique)}
+            ```
+            
+2024-08-17 19:29:24 [INFO] Executing Step 4: CachePopulation
+2024-08-17 19:29:25 [INFO] Executing Step 5: CodeCleaning
+2024-08-17 19:29:25 [INFO] 
+Code running:
+```
+age_unique = np.unique(dfs[0]['age'])
+result = {'type': 'number', 'value': len(age_unique)}
+        ```
+2024-08-17 19:29:25 [INFO] Executing Step 6: CodeExecution
+2024-08-17 19:29:25 [INFO] Executing Step 7: ResultValidation
+2024-08-17 19:29:25 [INFO] Answer: {'type': 'number', 'value': 89}
+2024-08-17 19:29:25 [INFO] Executing Step 8: ResultParsing
+2024-08-17 19:29:57 [INFO] Question: Count the unique values in the 'embarked' column.
+2024-08-17 19:29:57 [INFO] Running PandasAI with local LLM...
+2024-08-17 19:29:57 [INFO] Prompt ID: e2bb8389-98ba-4fb2-bee0-fd52a47bafb0
+2024-08-17 19:29:57 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-08-17 19:29:57 [INFO] Executing Step 0: ValidatePipelineInput
+2024-08-17 19:29:57 [INFO] Executing Step 1: CacheLookup
+2024-08-17 19:29:57 [INFO] Executing Step 2: PromptGeneration
+2024-08-17 19:29:57 [INFO] Using prompt: <dataframe>
+dfs[0]:891x15
+survived,pclass,sex,age,sibsp,parch,fare,embarked,class,who,adult_male,deck,embark_town,alive,alone
+0,2,female,55.5,1,0,12.525,S,Third,child,True,B,Southampton,no,False
+1,1,male,,3,6,13.4167,,Second,woman,False,C,Cherbourg,no,True
+0,3,male,71.0,0,1,23.0,Q,First,man,True,,,yes,True
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ Count the unique values in the 'embarked' column.
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+2024-08-17 19:29:57 [INFO] Executing Step 3: CodeGenerator
+2024-08-17 19:31:55 [INFO] HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+2024-08-17 19:31:55 [INFO] Prompt used:
+            <dataframe>
+dfs[0]:891x15
+survived,pclass,sex,age,sibsp,parch,fare,embarked,class,who,adult_male,deck,embark_town,alive,alone
+0,2,female,55.5,1,0,12.525,S,Third,child,True,B,Southampton,no,False
+1,1,male,,3,6,13.4167,,Second,woman,False,C,Cherbourg,no,True
+0,3,male,71.0,0,1,23.0,Q,First,man,True,,,yes,True
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ Count the unique values in the 'embarked' column.
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+            
+2024-08-17 19:31:55 [INFO] Code generated:
+            ```
+            # TODO: import the required dependencies
+import pandas as pd
+import matplotlib.pyplot as plt # for visualization
+
+# Write code here
+
+# Declare dataframe 'df' from 'dfs' list
+df = dfs[0]
+
+# Count unique values in 'embarked' column
+unique_values = df['embarked'].unique()
+num_unique_values = len(unique_values)
+
+# Declare result var: 
+result = { "type": "number", "value": num_unique_values}
+
+# Uncomment if you want to visualize embarked data with a bar chart:
+plt.figure(figsize=(10,6))
+plt.bar(*df['embarked'].value_counts().index, height=df['embarked'].value_counts())
+plt.title('Embarked Passengers')
+plt.xlabel('Embarked Town')
+plt.ylabel('Number of Passengers')
+plt.show()
+            ```
+            
+2024-08-17 19:31:55 [INFO] Executing Step 4: CachePopulation
+2024-08-17 19:31:55 [INFO] Executing Step 5: CodeCleaning
+2024-08-17 19:31:55 [INFO] 
+Code running:
+```
+df = dfs[0]
+unique_values = df['embarked'].unique()
+num_unique_values = len(unique_values)
+result = {'type': 'number', 'value': num_unique_values}
+plt.figure(figsize=(10, 6))
+plt.bar(*df['embarked'].value_counts().index, height=df['embarked'].value_counts())
+plt.title('Embarked Passengers')
+plt.xlabel('Embarked Town')
+plt.ylabel('Number of Passengers')
+plt.show()
+        ```
+2024-08-17 19:31:55 [INFO] Executing Step 6: CodeExecution
+2024-08-17 19:31:56 [ERROR] Failed with error: Traceback (most recent call last):
+  File "/Users/aboniasojasingarayar/Library/Python/3.9/lib/python/site-packages/pandasai/pipelines/chat/code_execution.py", line 85, in execute
+    result = self.execute_code(code_to_run, code_context)
+  File "/Users/aboniasojasingarayar/Library/Python/3.9/lib/python/site-packages/pandasai/pipelines/chat/code_execution.py", line 171, in execute_code
+    exec(code, environment)
+  File "<string>", line 6, in <module>
+TypeError: bar() got multiple values for argument 'height'
+
+2024-08-17 19:31:56 [WARNING] Failed to execute code retrying with a correction framework [retry number: 1]
+2024-08-17 19:31:56 [INFO] Executing Pipeline: ErrorCorrectionPipeline
+2024-08-17 19:31:56 [INFO] Executing Step 0: ErrorPromptGeneration
+2024-08-17 19:31:56 [INFO] Using prompt: <dataframe>
+dfs[0]:891x15
+survived,pclass,sex,age,sibsp,parch,fare,embarked,class,who,adult_male,deck,embark_town,alive,alone
+0,2,female,55.5,1,0,12.525,S,Third,child,True,B,Southampton,no,False
+1,1,male,,3,6,13.4167,,Second,woman,False,C,Cherbourg,no,True
+0,3,male,71.0,0,1,23.0,Q,First,man,True,,,yes,True
+</dataframe>
+
+
+The user asked the following question:
+### QUERY
+ Return the survived class in percentage
+### ANSWER
+ 38.38
+### QUERY
+ Count the unique values in the 'age' column.
+### ANSWER
+ 89
+### QUERY
+ Count the unique values in the 'embarked' column.
+
+You generated this python code:
+df = dfs[0]
+unique_values = df['embarked'].unique()
+num_unique_values = len(unique_values)
+result = {'type': 'number', 'value': num_unique_values}
+plt.figure(figsize=(10, 6))
+plt.bar(*df['embarked'].value_counts().index, height=df['embarked'].value_counts())
+plt.title('Embarked Passengers')
+plt.xlabel('Embarked Town')
+plt.ylabel('Number of Passengers')
+plt.show()
+
+It fails with the following error:
+Traceback (most recent call last):
+  File "/Users/aboniasojasingarayar/Library/Python/3.9/lib/python/site-packages/pandasai/pipelines/chat/code_execution.py", line 85, in execute
+    result = self.execute_code(code_to_run, code_context)
+  File "/Users/aboniasojasingarayar/Library/Python/3.9/lib/python/site-packages/pandasai/pipelines/chat/code_execution.py", line 171, in execute_code
+    exec(code, environment)
+  File "<string>", line 6, in <module>
+TypeError: bar() got multiple values for argument 'height'
+
+
+Fix the python code above and return the new python code:
+2024-08-17 19:31:56 [INFO] Executing Step 1: CodeGenerator
+2024-08-17 19:33:09 [INFO] HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+2024-08-17 19:33:09 [INFO] Prompt used:
+            <dataframe>
+dfs[0]:891x15
+survived,pclass,sex,age,sibsp,parch,fare,embarked,class,who,adult_male,deck,embark_town,alive,alone
+0,2,female,55.5,1,0,12.525,S,Third,child,True,B,Southampton,no,False
+1,1,male,,3,6,13.4167,,Second,woman,False,C,Cherbourg,no,True
+0,3,male,71.0,0,1,23.0,Q,First,man,True,,,yes,True
+</dataframe>
+
+
+The user asked the following question:
+### QUERY
+ Return the survived class in percentage
+### ANSWER
+ 38.38
+### QUERY
+ Count the unique values in the 'age' column.
+### ANSWER
+ 89
+### QUERY
+ Count the unique values in the 'embarked' column.
+
+You generated this python code:
+df = dfs[0]
+unique_values = df['embarked'].unique()
+num_unique_values = len(unique_values)
+result = {'type': 'number', 'value': num_unique_values}
+plt.figure(figsize=(10, 6))
+plt.bar(*df['embarked'].value_counts().index, height=df['embarked'].value_counts())
+plt.title('Embarked Passengers')
+plt.xlabel('Embarked Town')
+plt.ylabel('Number of Passengers')
+plt.show()
+
+It fails with the following error:
+Traceback (most recent call last):
+  File "/Users/aboniasojasingarayar/Library/Python/3.9/lib/python/site-packages/pandasai/pipelines/chat/code_execution.py", line 85, in execute
+    result = self.execute_code(code_to_run, code_context)
+  File "/Users/aboniasojasingarayar/Library/Python/3.9/lib/python/site-packages/pandasai/pipelines/chat/code_execution.py", line 171, in execute_code
+    exec(code, environment)
+  File "<string>", line 6, in <module>
+TypeError: bar() got multiple values for argument 'height'
+
+
+Fix the python code above and return the new python code:
+            
+2024-08-17 19:33:10 [INFO] Code generated:
+            ```
+            df = dfs[0]
+num_survived = len(df[df['alive'] == True]['survived'].values)
+num_total = df.shape[0]
+percentage_survived = round((num_survived / num_total)*100, 2)
+unique_values = df['embarked'].unique()
+num_unique_values = len(unique_values)
+
+print(f"The percentage of survived passengers is: {percentage_survived}%")
+print(f"There are {num_unique_values} unique values in the 'embarked' column.")
+            ```
+            
+2024-08-17 19:33:10 [INFO] Executing Step 2: CodeCleaning
+2024-08-17 19:33:10 [INFO] 
+Code running:
+```
+df = dfs[0]
+num_survived = len(df[df['alive'] == True]['survived'].values)
+num_total = df.shape[0]
+percentage_survived = round(num_survived / num_total * 100, 2)
+unique_values = df['embarked'].unique()
+num_unique_values = len(unique_values)
+print(f'The percentage of survived passengers is: {percentage_survived}%')
+print(f"There are {num_unique_values} unique values in the 'embarked' column.")
+        ```
+2024-08-17 19:33:10 [ERROR] Failed with error: Traceback (most recent call last):
+  File "/Users/aboniasojasingarayar/Library/Python/3.9/lib/python/site-packages/pandasai/pipelines/chat/code_execution.py", line 85, in execute
+    result = self.execute_code(code_to_run, code_context)
+  File "/Users/aboniasojasingarayar/Library/Python/3.9/lib/python/site-packages/pandasai/pipelines/chat/code_execution.py", line 175, in execute_code
+    raise NoResultFoundError("No result returned")
+pandasai.exceptions.NoResultFoundError: No result returned
+
+2024-08-17 19:33:10 [WARNING] Failed to execute code retrying with a correction framework [retry number: 2]
+2024-08-17 19:33:10 [INFO] Executing Pipeline: ErrorCorrectionPipeline
+2024-08-17 19:33:10 [INFO] Executing Step 0: ErrorPromptGeneration
+2024-08-17 19:33:10 [INFO] Using prompt: <dataframe>
+dfs[0]:891x15
+survived,pclass,sex,age,sibsp,parch,fare,embarked,class,who,adult_male,deck,embark_town,alive,alone
+0,2,female,55.5,1,0,12.525,S,Third,child,True,B,Southampton,no,False
+1,1,male,,3,6,13.4167,,Second,woman,False,C,Cherbourg,no,True
+0,3,male,71.0,0,1,23.0,Q,First,man,True,,,yes,True
+</dataframe>
+
+
+The user asked the following question:
+### QUERY
+ Return the survived class in percentage
+### ANSWER
+ 38.38
+### QUERY
+ Count the unique values in the 'age' column.
+### ANSWER
+ 89
+### QUERY
+ Count the unique values in the 'embarked' column.
+
+You generated this python code:
+df = dfs[0]
+num_survived = len(df[df['alive'] == True]['survived'].values)
+num_total = df.shape[0]
+percentage_survived = round(num_survived / num_total * 100, 2)
+unique_values = df['embarked'].unique()
+num_unique_values = len(unique_values)
+print(f'The percentage of survived passengers is: {percentage_survived}%')
+print(f"There are {num_unique_values} unique values in the 'embarked' column.")
+
+It fails with the following error:
+Traceback (most recent call last):
+  File "/Users/aboniasojasingarayar/Library/Python/3.9/lib/python/site-packages/pandasai/pipelines/chat/code_execution.py", line 85, in execute
+    result = self.execute_code(code_to_run, code_context)
+  File "/Users/aboniasojasingarayar/Library/Python/3.9/lib/python/site-packages/pandasai/pipelines/chat/code_execution.py", line 175, in execute_code
+    raise NoResultFoundError("No result returned")
+pandasai.exceptions.NoResultFoundError: No result returned
+
+
+Fix the python code above and return the new python code:
+2024-08-17 19:33:10 [INFO] Executing Step 1: CodeGenerator
+2024-08-17 19:34:13 [INFO] HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+2024-08-17 19:34:13 [INFO] Prompt used:
+            <dataframe>
+dfs[0]:891x15
+survived,pclass,sex,age,sibsp,parch,fare,embarked,class,who,adult_male,deck,embark_town,alive,alone
+0,2,female,55.5,1,0,12.525,S,Third,child,True,B,Southampton,no,False
+1,1,male,,3,6,13.4167,,Second,woman,False,C,Cherbourg,no,True
+0,3,male,71.0,0,1,23.0,Q,First,man,True,,,yes,True
+</dataframe>
+
+
+The user asked the following question:
+### QUERY
+ Return the survived class in percentage
+### ANSWER
+ 38.38
+### QUERY
+ Count the unique values in the 'age' column.
+### ANSWER
+ 89
+### QUERY
+ Count the unique values in the 'embarked' column.
+
+You generated this python code:
+df = dfs[0]
+num_survived = len(df[df['alive'] == True]['survived'].values)
+num_total = df.shape[0]
+percentage_survived = round(num_survived / num_total * 100, 2)
+unique_values = df['embarked'].unique()
+num_unique_values = len(unique_values)
+print(f'The percentage of survived passengers is: {percentage_survived}%')
+print(f"There are {num_unique_values} unique values in the 'embarked' column.")
+
+It fails with the following error:
+Traceback (most recent call last):
+  File "/Users/aboniasojasingarayar/Library/Python/3.9/lib/python/site-packages/pandasai/pipelines/chat/code_execution.py", line 85, in execute
+    result = self.execute_code(code_to_run, code_context)
+  File "/Users/aboniasojasingarayar/Library/Python/3.9/lib/python/site-packages/pandasai/pipelines/chat/code_execution.py", line 175, in execute_code
+    raise NoResultFoundError("No result returned")
+pandasai.exceptions.NoResultFoundError: No result returned
+
+
+Fix the python code above and return the new python code:
+            
+2024-08-17 19:34:13 [INFO] Code generated:
+            ```
+            # Assuming 'dfs' is a DataFrame list containing a single DataFrame, 'df'
+
+percentage_survived = (len(df[df['alive'] == True]) / len(df) * 100).round(2)
+unique_values = df['embarked'].unique()
+num_unique_values = len(unique_values)
+
+print(f'The percentage of survived passengers is: {percentage_survived}%')
+print(f"There are {num_unique_values} unique values in the 'embarked' column.")
+            ```
+            
+2024-08-17 19:34:13 [INFO] Executing Step 2: CodeCleaning
+2024-08-17 19:34:13 [INFO] 
+Code running:
+```
+percentage_survived = (len(df[df['alive'] == True]) / len(df) * 100).round(2)
+unique_values = df['embarked'].unique()
+num_unique_values = len(unique_values)
+print(f'The percentage of survived passengers is: {percentage_survived}%')
+print(f"There are {num_unique_values} unique values in the 'embarked' column.")
+        ```
+2024-08-17 19:34:13 [ERROR] Failed with error: Traceback (most recent call last):
+  File "/Users/aboniasojasingarayar/Library/Python/3.9/lib/python/site-packages/pandasai/pipelines/chat/code_execution.py", line 85, in execute
+    result = self.execute_code(code_to_run, code_context)
+  File "/Users/aboniasojasingarayar/Library/Python/3.9/lib/python/site-packages/pandasai/pipelines/chat/code_execution.py", line 171, in execute_code
+    exec(code, environment)
+  File "<string>", line 1, in <module>
+TypeError: 'NoneType' object is not subscriptable
+
+2024-08-17 19:34:13 [WARNING] Failed to execute code retrying with a correction framework [retry number: 3]
+2024-08-17 19:34:14 [INFO] Executing Pipeline: ErrorCorrectionPipeline
+2024-08-17 19:34:14 [INFO] Executing Step 0: ErrorPromptGeneration
+2024-08-17 19:34:14 [INFO] Using prompt: <dataframe>
+dfs[0]:891x15
+survived,pclass,sex,age,sibsp,parch,fare,embarked,class,who,adult_male,deck,embark_town,alive,alone
+0,2,female,55.5,1,0,12.525,S,Third,child,True,B,Southampton,no,False
+1,1,male,,3,6,13.4167,,Second,woman,False,C,Cherbourg,no,True
+0,3,male,71.0,0,1,23.0,Q,First,man,True,,,yes,True
+</dataframe>
+
+
+The user asked the following question:
+### QUERY
+ Return the survived class in percentage
+### ANSWER
+ 38.38
+### QUERY
+ Count the unique values in the 'age' column.
+### ANSWER
+ 89
+### QUERY
+ Count the unique values in the 'embarked' column.
+
+You generated this python code:
+percentage_survived = (len(df[df['alive'] == True]) / len(df) * 100).round(2)
+unique_values = df['embarked'].unique()
+num_unique_values = len(unique_values)
+print(f'The percentage of survived passengers is: {percentage_survived}%')
+print(f"There are {num_unique_values} unique values in the 'embarked' column.")
+
+It fails with the following error:
+Traceback (most recent call last):
+  File "/Users/aboniasojasingarayar/Library/Python/3.9/lib/python/site-packages/pandasai/pipelines/chat/code_execution.py", line 85, in execute
+    result = self.execute_code(code_to_run, code_context)
+  File "/Users/aboniasojasingarayar/Library/Python/3.9/lib/python/site-packages/pandasai/pipelines/chat/code_execution.py", line 171, in execute_code
+    exec(code, environment)
+  File "<string>", line 1, in <module>
+TypeError: 'NoneType' object is not subscriptable
+
+
+Fix the python code above and return the new python code:
+2024-08-17 19:34:14 [INFO] Executing Step 1: CodeGenerator
+2024-08-17 19:44:39 [INFO] Question: Plot the sales data by country.
+2024-08-17 19:44:39 [INFO] Running PandasAI with local LLM...
+2024-08-17 19:44:39 [INFO] Prompt ID: 2ce77624-f0cd-49b6-98e2-91c2382ec3d1
+2024-08-17 19:44:39 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-08-17 19:44:39 [INFO] Executing Step 0: ValidatePipelineInput
+2024-08-17 19:44:39 [INFO] Executing Step 1: CacheLookup
+2024-08-17 19:44:39 [INFO] Executing Step 2: PromptGeneration
+2024-08-17 19:44:39 [INFO] Using prompt: <dataframe>
+dfs[0]:891x15
+survived,pclass,sex,age,sibsp,parch,fare,embarked,class,who,adult_male,deck,embark_town,alive,alone
+0,3,male,,4,0,50.0,S,Second,child,False,E,,no,False
+1,2,male,45.0,5,5,25.4667,C,First,woman,True,B,Queenstown,yes,True
+1,1,female,62.0,3,2,7.55,,Third,man,False,,Cherbourg,yes,False
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ Plot the sales data by country.
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+2024-08-17 19:44:39 [INFO] Executing Step 3: CodeGenerator
+2024-08-17 19:45:17 [INFO] HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+2024-08-17 19:45:17 [INFO] Prompt used:
+            <dataframe>
+dfs[0]:891x15
+survived,pclass,sex,age,sibsp,parch,fare,embarked,class,who,adult_male,deck,embark_town,alive,alone
+0,3,male,,4,0,50.0,S,Second,child,False,E,,no,False
+1,2,male,45.0,5,5,25.4667,C,First,woman,True,B,Queenstown,yes,True
+1,1,female,62.0,3,2,7.55,,Third,man,False,,Cherbourg,yes,False
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ Plot the sales data by country.
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+            
+2024-08-17 19:45:17 [INFO] Code generated:
+            ```
+            # Import required dependencies
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Assuming 'sales_data' is a list of dataframes with 'Country' column in each df
+dfs = [..., {'Country': ['US', 'CA', 'MX', ...], 'Sales': [1000, 500, 750, ...]}]
+
+# Declare result var:
+result = { "type": "plot", "value": ""}
+
+# Merge all sales dataframes to get total sales by country
+sales_df = pd.concat(dfs).groupby('Country')['Sales'].sum().reset_index(name="TotalSales")
+
+# Create the plot
+fig, ax = plt.subplots()
+ax.bar(x=sales_df["Country"], height=sales_df["TotalSales"])
+ax.set(xlabel='Country', ylabel='Total Sales')
+ax.set_title('Sales by Country')
+
+# Save and show the plot
+result["value"] = plt.savefig("sales_by_country.png")
+plt.show()
+
+# Declare final result
+result = { "type": "plot", "value": "sales_by_country.png" }
+            ```
+            
+2024-08-17 19:45:17 [INFO] Executing Step 4: CachePopulation
+2024-08-17 19:45:17 [INFO] Executing Step 5: CodeCleaning
+2024-08-17 19:45:17 [INFO] Saving charts to /Users/aboniasojasingarayar/Documents/Github/Tutorial/pandas-ai/exports/charts/temp_chart.png
+2024-08-17 19:45:17 [INFO] 
+Code running:
+```
+result = {'type': 'plot', 'value': ''}
+sales_df = pd.concat(dfs).groupby('Country')['Sales'].sum().reset_index(name='TotalSales')
+fig, ax = plt.subplots()
+ax.bar(x=sales_df['Country'], height=sales_df['TotalSales'])
+ax.set(xlabel='Country', ylabel='Total Sales')
+ax.set_title('Sales by Country')
+result['value'] = plt.savefig('/Users/aboniasojasingarayar/Documents/Github/Tutorial/pandas-ai/exports/charts/temp_chart.png')
+plt.show()
+result = {'type': 'plot', 'value': '/Users/aboniasojasingarayar/Documents/Github/Tutorial/pandas-ai/exports/charts/temp_chart.png'}
+        ```
+2024-08-17 19:45:17 [INFO] Executing Step 6: CodeExecution
+2024-08-17 19:45:17 [ERROR] Failed with error: Traceback (most recent call last):
+  File "/Users/aboniasojasingarayar/Library/Python/3.9/lib/python/site-packages/pandasai/pipelines/chat/code_execution.py", line 85, in execute
+    result = self.execute_code(code_to_run, code_context)
+  File "/Users/aboniasojasingarayar/Library/Python/3.9/lib/python/site-packages/pandasai/pipelines/chat/code_execution.py", line 171, in execute_code
+    exec(code, environment)
+  File "<string>", line 2, in <module>
+  File "/Users/aboniasojasingarayar/Library/Python/3.9/lib/python/site-packages/pandas/core/frame.py", line 8402, in groupby
+    return DataFrameGroupBy(
+  File "/Users/aboniasojasingarayar/Library/Python/3.9/lib/python/site-packages/pandas/core/groupby/groupby.py", line 965, in __init__
+    grouper, exclusions, obj = get_grouper(
+  File "/Users/aboniasojasingarayar/Library/Python/3.9/lib/python/site-packages/pandas/core/groupby/grouper.py", line 888, in get_grouper
+    raise KeyError(gpr)
+KeyError: 'Country'
+
+2024-08-17 19:45:17 [WARNING] Failed to execute code retrying with a correction framework [retry number: 1]
+2024-08-17 19:45:17 [INFO] Executing Pipeline: ErrorCorrectionPipeline
+2024-08-17 19:45:17 [INFO] Executing Step 0: ErrorPromptGeneration
+2024-08-17 19:45:17 [INFO] Using prompt: <dataframe>
+dfs[0]:891x15
+survived,pclass,sex,age,sibsp,parch,fare,embarked,class,who,adult_male,deck,embark_town,alive,alone
+0,3,male,,4,0,50.0,S,Second,child,False,E,,no,False
+1,2,male,45.0,5,5,25.4667,C,First,woman,True,B,Queenstown,yes,True
+1,1,female,62.0,3,2,7.55,,Third,man,False,,Cherbourg,yes,False
+</dataframe>
+
+
+The user asked the following question:
+### QUERY
+ Plot the sales data by country.
+
+You generated this python code:
+result = {'type': 'plot', 'value': ''}
+sales_df = pd.concat(dfs).groupby('Country')['Sales'].sum().reset_index(name='TotalSales')
+fig, ax = plt.subplots()
+ax.bar(x=sales_df['Country'], height=sales_df['TotalSales'])
+ax.set(xlabel='Country', ylabel='Total Sales')
+ax.set_title('Sales by Country')
+result['value'] = plt.savefig('/Users/aboniasojasingarayar/Documents/Github/Tutorial/pandas-ai/exports/charts/temp_chart.png')
+plt.show()
+result = {'type': 'plot', 'value': '/Users/aboniasojasingarayar/Documents/Github/Tutorial/pandas-ai/exports/charts/temp_chart.png'}
+
+It fails with the following error:
+Traceback (most recent call last):
+  File "/Users/aboniasojasingarayar/Library/Python/3.9/lib/python/site-packages/pandasai/pipelines/chat/code_execution.py", line 85, in execute
+    result = self.execute_code(code_to_run, code_context)
+  File "/Users/aboniasojasingarayar/Library/Python/3.9/lib/python/site-packages/pandasai/pipelines/chat/code_execution.py", line 171, in execute_code
+    exec(code, environment)
+  File "<string>", line 2, in <module>
+  File "/Users/aboniasojasingarayar/Library/Python/3.9/lib/python/site-packages/pandas/core/frame.py", line 8402, in groupby
+    return DataFrameGroupBy(
+  File "/Users/aboniasojasingarayar/Library/Python/3.9/lib/python/site-packages/pandas/core/groupby/groupby.py", line 965, in __init__
+    grouper, exclusions, obj = get_grouper(
+  File "/Users/aboniasojasingarayar/Library/Python/3.9/lib/python/site-packages/pandas/core/groupby/grouper.py", line 888, in get_grouper
+    raise KeyError(gpr)
+KeyError: 'Country'
+
+
+Fix the python code above and return the new python code:
+2024-08-17 19:45:17 [INFO] Executing Step 1: CodeGenerator
+2024-08-17 19:46:17 [INFO] HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+2024-08-17 19:46:18 [INFO] Prompt used:
+            <dataframe>
+dfs[0]:891x15
+survived,pclass,sex,age,sibsp,parch,fare,embarked,class,who,adult_male,deck,embark_town,alive,alone
+0,3,male,,4,0,50.0,S,Second,child,False,E,,no,False
+1,2,male,45.0,5,5,25.4667,C,First,woman,True,B,Queenstown,yes,True
+1,1,female,62.0,3,2,7.55,,Third,man,False,,Cherbourg,yes,False
+</dataframe>
+
+
+The user asked the following question:
+### QUERY
+ Plot the sales data by country.
+
+You generated this python code:
+result = {'type': 'plot', 'value': ''}
+sales_df = pd.concat(dfs).groupby('Country')['Sales'].sum().reset_index(name='TotalSales')
+fig, ax = plt.subplots()
+ax.bar(x=sales_df['Country'], height=sales_df['TotalSales'])
+ax.set(xlabel='Country', ylabel='Total Sales')
+ax.set_title('Sales by Country')
+result['value'] = plt.savefig('/Users/aboniasojasingarayar/Documents/Github/Tutorial/pandas-ai/exports/charts/temp_chart.png')
+plt.show()
+result = {'type': 'plot', 'value': '/Users/aboniasojasingarayar/Documents/Github/Tutorial/pandas-ai/exports/charts/temp_chart.png'}
+
+It fails with the following error:
+Traceback (most recent call last):
+  File "/Users/aboniasojasingarayar/Library/Python/3.9/lib/python/site-packages/pandasai/pipelines/chat/code_execution.py", line 85, in execute
+    result = self.execute_code(code_to_run, code_context)
+  File "/Users/aboniasojasingarayar/Library/Python/3.9/lib/python/site-packages/pandasai/pipelines/chat/code_execution.py", line 171, in execute_code
+    exec(code, environment)
+  File "<string>", line 2, in <module>
+  File "/Users/aboniasojasingarayar/Library/Python/3.9/lib/python/site-packages/pandas/core/frame.py", line 8402, in groupby
+    return DataFrameGroupBy(
+  File "/Users/aboniasojasingarayar/Library/Python/3.9/lib/python/site-packages/pandas/core/groupby/groupby.py", line 965, in __init__
+    grouper, exclusions, obj = get_grouper(
+  File "/Users/aboniasojasingarayar/Library/Python/3.9/lib/python/site-packages/pandas/core/groupby/grouper.py", line 888, in get_grouper
+    raise KeyError(gpr)
+KeyError: 'Country'
+
+
+Fix the python code above and return the new python code:
+            
+2024-08-17 19:46:18 [INFO] Code generated:
+            ```
+            result = {'type': 'plot', 'value': ''}
+sales_df = pd.concat(dfs, ignore_index=True)  # concatenate all DataFrames and assign a new index
+sales_df = sales_df[['Country', 'Sales'].sum()]  # group by country and sum up sales
+fig, ax = plt.subplots()
+ax.bar(x=sales_df['Country'], height=sales_df['Sales'])
+ax.set(xlabel='Country', ylabel='Total Sales')
+ax.set_title('Sales by Country')
+result['value'] = plt.savefig('/path/to/save/your/image.png')
+plt.show()
+result = {'type': 'plot', 'value': '/path/to/save/your/image.png'}
+            ```
+            
+2024-08-17 19:46:18 [INFO] Executing Step 2: CodeCleaning
+2024-08-17 19:46:18 [INFO] Saving charts to /Users/aboniasojasingarayar/Documents/Github/Tutorial/pandas-ai/exports/charts/temp_chart.png
+2024-08-17 19:46:18 [INFO] 
+Code running:
+```
+result = {'type': 'plot', 'value': ''}
+sales_df = pd.concat(dfs, ignore_index=True)
+sales_df = sales_df[['Country', 'Sales'].sum()]
+fig, ax = plt.subplots()
+ax.bar(x=sales_df['Country'], height=sales_df['Sales'])
+ax.set(xlabel='Country', ylabel='Total Sales')
+ax.set_title('Sales by Country')
+result['value'] = plt.savefig('/Users/aboniasojasingarayar/Documents/Github/Tutorial/pandas-ai/exports/charts/temp_chart.png')
+plt.show()
+result = {'type': 'plot', 'value': '/Users/aboniasojasingarayar/Documents/Github/Tutorial/pandas-ai/exports/charts/temp_chart.png'}
+        ```
+2024-08-17 19:46:18 [ERROR] Failed with error: Traceback (most recent call last):
+  File "/Users/aboniasojasingarayar/Library/Python/3.9/lib/python/site-packages/pandasai/pipelines/chat/code_execution.py", line 85, in execute
+    result = self.execute_code(code_to_run, code_context)
+  File "/Users/aboniasojasingarayar/Library/Python/3.9/lib/python/site-packages/pandasai/pipelines/chat/code_execution.py", line 171, in execute_code
+    exec(code, environment)
+  File "<string>", line 3, in <module>
+AttributeError: 'list' object has no attribute 'sum'
+
+2024-08-17 19:46:18 [WARNING] Failed to execute code retrying with a correction framework [retry number: 2]
+2024-08-17 19:46:18 [INFO] Executing Pipeline: ErrorCorrectionPipeline
+2024-08-17 19:46:18 [INFO] Executing Step 0: ErrorPromptGeneration
+2024-08-17 19:46:18 [INFO] Using prompt: <dataframe>
+dfs[0]:891x15
+survived,pclass,sex,age,sibsp,parch,fare,embarked,class,who,adult_male,deck,embark_town,alive,alone
+0,3,male,,4,0,50.0,S,Second,child,False,E,,no,False
+1,2,male,45.0,5,5,25.4667,C,First,woman,True,B,Queenstown,yes,True
+1,1,female,62.0,3,2,7.55,,Third,man,False,,Cherbourg,yes,False
+</dataframe>
+
+
+The user asked the following question:
+### QUERY
+ Plot the sales data by country.
+
+You generated this python code:
+result = {'type': 'plot', 'value': ''}
+sales_df = pd.concat(dfs, ignore_index=True)
+sales_df = sales_df[['Country', 'Sales'].sum()]
+fig, ax = plt.subplots()
+ax.bar(x=sales_df['Country'], height=sales_df['Sales'])
+ax.set(xlabel='Country', ylabel='Total Sales')
+ax.set_title('Sales by Country')
+result['value'] = plt.savefig('/Users/aboniasojasingarayar/Documents/Github/Tutorial/pandas-ai/exports/charts/temp_chart.png')
+plt.show()
+result = {'type': 'plot', 'value': '/Users/aboniasojasingarayar/Documents/Github/Tutorial/pandas-ai/exports/charts/temp_chart.png'}
+
+It fails with the following error:
+Traceback (most recent call last):
+  File "/Users/aboniasojasingarayar/Library/Python/3.9/lib/python/site-packages/pandasai/pipelines/chat/code_execution.py", line 85, in execute
+    result = self.execute_code(code_to_run, code_context)
+  File "/Users/aboniasojasingarayar/Library/Python/3.9/lib/python/site-packages/pandasai/pipelines/chat/code_execution.py", line 171, in execute_code
+    exec(code, environment)
+  File "<string>", line 3, in <module>
+AttributeError: 'list' object has no attribute 'sum'
+
+
+Fix the python code above and return the new python code:
+2024-08-17 19:46:18 [INFO] Executing Step 1: CodeGenerator
+2024-08-17 19:47:34 [INFO] HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+2024-08-17 19:47:34 [ERROR] Pipeline failed on step 1: No code found in the response
+2024-08-17 19:47:35 [ERROR] Pipeline failed on step 6: No code found in the response
+2024-08-17 19:48:26 [INFO] Question: Plot the sales data by country.
+2024-08-17 19:48:26 [INFO] Running PandasAI with local LLM...
+2024-08-17 19:48:26 [INFO] Prompt ID: 9ec10cb8-e976-4238-b165-0f18865f08ae
+2024-08-17 19:48:26 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-08-17 19:48:26 [INFO] Executing Step 0: ValidatePipelineInput
+2024-08-17 19:48:26 [INFO] Executing Step 1: CacheLookup
+2024-08-17 19:48:26 [INFO] Executing Step 2: PromptGeneration
+2024-08-17 19:48:26 [INFO] Using prompt: <dataframe>
+dfs[0]:10x2
+country,sales
+Canada,4500
+China,4100
+United Kingdom,2900
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ Plot the sales data by country.
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+2024-08-17 19:48:26 [INFO] Executing Step 3: CodeGenerator
+2024-08-17 19:48:58 [INFO] HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+2024-08-17 19:48:59 [INFO] Prompt used:
+            <dataframe>
+dfs[0]:10x2
+country,sales
+Canada,4500
+China,4100
+United Kingdom,2900
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ Plot the sales data by country.
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+            
+2024-08-17 19:48:59 [INFO] Code generated:
+            ```
+            # Import required dependencies
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Declare result var: 
+result = { "type": "plot", "value": ""}
+
+# Plot sales data by country
+if len(dfs)>0 and len(dfs[0])>1:
+    dfs[0].plot(x='country', y='sales', kind='bar')
+    plt.title('Sales Data By Country')
+    plt.xlabel('Country')
+    plt.ylabel('Sales')
+    result["value"] = plt.savefig("sales_by_country.png")
+            ```
+            
+2024-08-17 19:48:59 [INFO] Executing Step 4: CachePopulation
+2024-08-17 19:48:59 [INFO] Executing Step 5: CodeCleaning
+2024-08-17 19:48:59 [INFO] Saving charts to /Users/aboniasojasingarayar/Documents/Github/Tutorial/pandas-ai/exports/charts/temp_chart.png
+2024-08-17 19:48:59 [INFO] 
+Code running:
+```
+result = {'type': 'plot', 'value': ''}
+if len(dfs) > 0 and len(dfs[0]) > 1:
+    dfs[0].plot(x='country', y='sales', kind='bar')
+    plt.title('Sales Data By Country')
+    plt.xlabel('Country')
+    plt.ylabel('Sales')
+    result['value'] = plt.savefig('/Users/aboniasojasingarayar/Documents/Github/Tutorial/pandas-ai/exports/charts/temp_chart.png')
+        ```
+2024-08-17 19:48:59 [INFO] Executing Step 6: CodeExecution
+2024-08-17 19:48:59 [ERROR] Failed with error: Traceback (most recent call last):
+  File "/Users/aboniasojasingarayar/Library/Python/3.9/lib/python/site-packages/pandasai/pipelines/chat/code_execution.py", line 97, in execute
+    raise InvalidOutputValueMismatch(
+pandasai.exceptions.InvalidOutputValueMismatch: Value type <class 'NoneType'> must match with type plot
+
+2024-08-17 19:48:59 [WARNING] Failed to execute code retrying with a correction framework [retry number: 1]
+2024-08-17 19:48:59 [INFO] Executing Pipeline: ErrorCorrectionPipeline
+2024-08-17 19:48:59 [INFO] Executing Step 0: ErrorPromptGeneration
+2024-08-17 19:48:59 [INFO] Using prompt: <dataframe>
+dfs[0]:10x2
+country,sales
+Canada,4500
+China,4100
+United Kingdom,2900
+</dataframe>
+
+
+The user asked the following question:
+### QUERY
+ Plot the sales data by country.
+
+You generated this python code:
+result = {'type': 'plot', 'value': ''}
+if len(dfs) > 0 and len(dfs[0]) > 1:
+    dfs[0].plot(x='country', y='sales', kind='bar')
+    plt.title('Sales Data By Country')
+    plt.xlabel('Country')
+    plt.ylabel('Sales')
+    result['value'] = plt.savefig('/Users/aboniasojasingarayar/Documents/Github/Tutorial/pandas-ai/exports/charts/temp_chart.png')
+
+It fails with the following error:
+Traceback (most recent call last):
+  File "/Users/aboniasojasingarayar/Library/Python/3.9/lib/python/site-packages/pandasai/pipelines/chat/code_execution.py", line 97, in execute
+    raise InvalidOutputValueMismatch(
+pandasai.exceptions.InvalidOutputValueMismatch: Value type <class 'NoneType'> must match with type plot
+
+
+Fix the python code above and return the new python code:
+2024-08-17 19:48:59 [INFO] Executing Step 1: CodeGenerator
+2024-08-17 19:50:54 [INFO] HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+2024-08-17 19:50:54 [INFO] Prompt used:
+            <dataframe>
+dfs[0]:10x2
+country,sales
+Canada,4500
+China,4100
+United Kingdom,2900
+</dataframe>
+
+
+The user asked the following question:
+### QUERY
+ Plot the sales data by country.
+
+You generated this python code:
+result = {'type': 'plot', 'value': ''}
+if len(dfs) > 0 and len(dfs[0]) > 1:
+    dfs[0].plot(x='country', y='sales', kind='bar')
+    plt.title('Sales Data By Country')
+    plt.xlabel('Country')
+    plt.ylabel('Sales')
+    result['value'] = plt.savefig('/Users/aboniasojasingarayar/Documents/Github/Tutorial/pandas-ai/exports/charts/temp_chart.png')
+
+It fails with the following error:
+Traceback (most recent call last):
+  File "/Users/aboniasojasingarayar/Library/Python/3.9/lib/python/site-packages/pandasai/pipelines/chat/code_execution.py", line 97, in execute
+    raise InvalidOutputValueMismatch(
+pandasai.exceptions.InvalidOutputValueMismatch: Value type <class 'NoneType'> must match with type plot
+
+
+Fix the python code above and return the new python code:
+            
+2024-08-17 19:50:54 [INFO] Code generated:
+            ```
+            import pandas as pd
+import matplotlib.pyplot as plt
+
+# Assuming `dfs` is a list of DataFrames
+result = {'type': 'plot', 'value': ''}
+if len(dfs) > 0 and len(dfs[0]) > 1:
+    fig, ax = plt.subplots()
+    dfs[0].plot(x='country', y='sales', kind='bar', ax=ax)
+    plt.title('Sales Data By Country')
+    plt.xlabel('Country')
+    plt.ylabel('Sales')
+    result['value'] = {'data': {'chart': {'type': 'line'}, 'file': '/Users/aboniasojasingarayar/Documents/Github/Tutorial/pandas-ai/exports/charts/temp_chart.png'}} if plt.savefig('/Users/aboniasojasingarayar/Documents/Github/Tutorial/pandas-ai/exports/charts/temp_chart.png') else None
+else:
+    result['value'] = {}
+            ```
+            
+2024-08-17 19:50:54 [INFO] Executing Step 2: CodeCleaning
+2024-08-17 19:50:54 [INFO] Saving charts to /Users/aboniasojasingarayar/Documents/Github/Tutorial/pandas-ai/exports/charts/temp_chart.png
+2024-08-17 19:50:54 [INFO] 
+Code running:
+```
+result = {'type': 'plot', 'value': ''}
+if len(dfs) > 0 and len(dfs[0]) > 1:
+    fig, ax = plt.subplots()
+    dfs[0].plot(x='country', y='sales', kind='bar', ax=ax)
+    plt.title('Sales Data By Country')
+    plt.xlabel('Country')
+    plt.ylabel('Sales')
+    result['value'] = {'data': {'chart': {'type': 'line'}, 'file': '/Users/aboniasojasingarayar/Documents/Github/Tutorial/pandas-ai/exports/charts/temp_chart.png'}} if plt.savefig('/Users/aboniasojasingarayar/Documents/Github/Tutorial/pandas-ai/exports/charts/temp_chart.png') else None
+else:
+    result['value'] = {}
+        ```
+2024-08-17 19:50:55 [ERROR] Failed with error: Traceback (most recent call last):
+  File "/Users/aboniasojasingarayar/Library/Python/3.9/lib/python/site-packages/pandasai/pipelines/chat/code_execution.py", line 97, in execute
+    raise InvalidOutputValueMismatch(
+pandasai.exceptions.InvalidOutputValueMismatch: Value type <class 'NoneType'> must match with type plot
+
+2024-08-17 19:50:55 [WARNING] Failed to execute code retrying with a correction framework [retry number: 2]
+2024-08-17 19:50:55 [INFO] Executing Pipeline: ErrorCorrectionPipeline
+2024-08-17 19:50:55 [INFO] Executing Step 0: ErrorPromptGeneration
+2024-08-17 19:50:55 [INFO] Using prompt: <dataframe>
+dfs[0]:10x2
+country,sales
+Canada,4500
+China,4100
+United Kingdom,2900
+</dataframe>
+
+
+The user asked the following question:
+### QUERY
+ Plot the sales data by country.
+
+You generated this python code:
+result = {'type': 'plot', 'value': ''}
+if len(dfs) > 0 and len(dfs[0]) > 1:
+    fig, ax = plt.subplots()
+    dfs[0].plot(x='country', y='sales', kind='bar', ax=ax)
+    plt.title('Sales Data By Country')
+    plt.xlabel('Country')
+    plt.ylabel('Sales')
+    result['value'] = {'data': {'chart': {'type': 'line'}, 'file': '/Users/aboniasojasingarayar/Documents/Github/Tutorial/pandas-ai/exports/charts/temp_chart.png'}} if plt.savefig('/Users/aboniasojasingarayar/Documents/Github/Tutorial/pandas-ai/exports/charts/temp_chart.png') else None
+else:
+    result['value'] = {}
+
+It fails with the following error:
+Traceback (most recent call last):
+  File "/Users/aboniasojasingarayar/Library/Python/3.9/lib/python/site-packages/pandasai/pipelines/chat/code_execution.py", line 97, in execute
+    raise InvalidOutputValueMismatch(
+pandasai.exceptions.InvalidOutputValueMismatch: Value type <class 'NoneType'> must match with type plot
+
+
+Fix the python code above and return the new python code:
+2024-08-17 19:50:55 [INFO] Executing Step 1: CodeGenerator
+2024-08-17 19:51:53 [INFO] HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+2024-08-17 19:51:53 [ERROR] Pipeline failed on step 1: No code found in the response
+2024-08-17 19:51:54 [ERROR] Pipeline failed on step 6: No code found in the response
